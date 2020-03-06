@@ -6,10 +6,7 @@ for tc in range(1, T + 1):
     results = [0] * (maxS)
     results[0] = 1
     for n in range(N):
-        temp = [0] * (maxS)
-        for i in range(maxS):
+        for i in range(maxS - 1, -1, -1):
             if results[i]:
-                temp[i + scores[n]] = 1
-        for i in range(maxS):
-            results[i] = max(results[i], temp[i])
+                results[i + scores[n]] = 1
     print(f'#{tc} {sum(results)}')
